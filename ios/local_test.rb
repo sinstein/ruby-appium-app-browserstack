@@ -1,7 +1,6 @@
 require 'rubygems'
 require 'appium_lib'
 require 'browserstack/local'
-require 'pry'
 
 device =   'iPhone 7'
 username = ENV['BROWSERSTACK_USER']

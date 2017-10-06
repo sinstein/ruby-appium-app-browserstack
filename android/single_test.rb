@@ -1,45 +1,33 @@
 require 'rubygems'
 require 'appium_lib'
-require 'pry'
 
-device =   'iPhone 7'
+device =   'Google Pixel'
 username = ENV['BROWSERSTACK_USER']
 access_key = ENV['BROWSERSTACK_ACCESSKEY']
 
 caps = {}
-caps['device'] = 'iPhone 7 Plus'
+caps['device'] = device
 caps['realMobile'] = true
 caps['browserstack.debug'] = true
-caps['app'] = 'bs://206df813c42ead2181fd2526c2af674116fefacb'
+caps['app'] = 'bs://953cfe54a252dcf446117f94b51aaf20fb644441'
 
 caps['project'] = 'Sinstein'
 caps['build'] = 'Ruby Appium Sample'
-caps['name'] = 'iOS Single Test'
+caps['name'] = 'Android Single Test'
+
 # Android App bs://953cfe54a252dcf446117f94b51aaf20fb644441
-# Android local bs://025cc446c42c0c84036ab0d23aded1a64ce97b71
 # IOS App bs://206df813c42ead2181fd2526c2af674116fefacb
 
 appium_driver = Appium::Driver.new({'caps' => caps, 'appium_lib' => { :server_url => "http://#{username}:#{access_key}@hub.browserstack.com/wd/hub"}})
 driver = appium_driver.start_driver
 
-
-puts driver.session_id
-
-element = driver.find_element(:accessibility_id, "Log In")
-element.click
+element = driver.find_element(:accessibility_id, "Search Wikipedia")
+element.send_keys("BrowserStack")
 
 sleep 10
 
-element = driver.find_element(:accessibility_id, "Email address")
-element.send_keys("hello@browserstack.com")
-
-driver.find_element(:accessibility_id, "Next").click
-
-sleep 10
-
-results = driver.find_elements(:xpath, "//XCUIElementTypeStaticText")
-
-if results.map(&:text).any?{|x| x.match('not registered')}
+results = driver.find_elements(:class, "android.widget.TextView")
+if results.count > 0
   puts "FOUND RESULTS"
 else
   puts "FOUND NOTHING"

@@ -12,7 +12,7 @@ Sample scripts to test Android and iOS apps using Appium on  [BrowserStack App A
 
 ## Android
 To run single test<br>
-`ruby android/appium_test.rb`
+`ruby android/single_test.rb`
 
 
 To run local test<br>
@@ -21,7 +21,7 @@ To run local test<br>
 
 ## iOS
 To run single test<br>
-`ruby ios/appium_test.rb`
+`ruby ios/single_test.rb`
 
 
 To run local test<br>
