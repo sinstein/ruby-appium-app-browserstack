@@ -10,19 +10,8 @@ Sample scripts to test Android and iOS apps using Appium on  [BrowserStack App A
 3. Install the local bindings gem (if you need to run local tests)<br>
 `gem install 'browserstack/local'`
 
-## Android
-To run single test<br>
-`ruby android/single_test.rb`
+## Testing Android Apps
+Refer to [instructions](android/README.md)
 
-
-To run local test<br>
-`ruby android/local_test.rb`
-
-
-## iOS
-To run single test<br>
-`ruby ios/single_test.rb`
-
-
-To run local test<br>
-`ruby ios/local_test.rb`
+## Testing iOS Apps
+Refer to [instructions](ios/README.md)
